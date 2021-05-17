@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>表單選擇器</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        h1 {
+            text-shadow: rgb(85, 85, 85) 2px 5px 10px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        form {
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="mt-5">測試表單選取器</h1>
+    <div class="container">
+        <div class="row">
+
+            <form class="my-3">
+
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                        placeholder="Enter email">
+                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                        else.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">密碼</label>
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <div class="form-group form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Check 123</label>
+                    <br>
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1" checked>
+                    <label class="form-check-label" for="exampleCheck1">Check ABC</label>
+                </div>
+
+                <select name="garden">
+                    <option>Flowers</option>
+                    <option>Shrubs</option>
+                    <option>Trees</option>
+                    <option selected>Bushes</option>
+                    <option>Grass</option>
+                    <option>Dirt</option>
+                </select>
+
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Example file input</label>
+                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+
+                <button type="submit" class="btn btn-primary">送出</button>
+                <button type="reset" class="btn btn-primary">重置</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+        </script>
+    <script>
+        // $(':button').css('background', 'red');
+        $(':checkbox ~ label').css('background', 'pink');
+        $(':checked ~ label').css('background', 'orange');
+        // $(':disabled').css('background', 'red');
+        // $(':enabled').css('background', 'red');
+        $(':reset').css('background', 'yellow').css('color', 'gray');
+        // $(':password').css('background', 'red');
+        // $(':radio + label').css('background', 'red');
+        $(':file').css('background', 'red');
+        $(':selected').css('background', 'yellow')
+        $(':focus').css('background', 'green');
+        // focus 的效果 可以藉由F12之後選擇Element中的style :hov 在控制台寫
+        $(':text').css('background', 'red');
+    </script>
+</body>
+
+</html>
