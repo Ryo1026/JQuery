@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>練習3 select pic</title>
+    <style>
+        .row {
+            width: 80%;
+            margin: 30px auto;
+            display: flex;
+        }
+
+        .pic {
+            box-sizing: border-box;
+            width: 200px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="row">
+        <div class="pic"><img src="./img/person1.jpg" alt=""></div>
+        <div class="pic"><img src="./img/person2.jpg" alt=""></div>
+        <div class="pic"><img src="./img/person3.jpg" alt=""></div>
+        <div class="pic"><img src="./img/person4.jpg" alt=""></div>
+        <div class="pic"><img src="./img/person5.jpg" alt=""></div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+        </script>
+    <script>
+        $('.pic').click(function () {
+            $(this).css('border', '5px solid red').siblings().css('border', 'none')
+        });
+    </script>
+</body>
+
+</html>
