@@ -55,6 +55,8 @@
                     for (i = 0; i < districtObj[0].length; i++) {
                         console.log('選到基隆', districtObj[0][i])
                         $('#district').children().eq(i).text(`${districtObj[0][i]}區`)
+
+                        // 原本的想法如下 取索引用 eq() 改內容用 text() 不要用等號
                         // $('#district').children()[i] = `<option value="${i}">${districtObj[0][i]}</option>`
                     }
                     break;
