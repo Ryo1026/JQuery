@@ -50,6 +50,15 @@
             $(':checked').closest('tr').css('background', 'aqua');
             $('input:not(:checked)').closest('tr').css('background', 'white');
         });
+
+        // attr 與 prop 的差別
+        $(':checkbox').click(function () {
+            console.log('hi', $(this).prop('checked'))
+            // prop() 狀態
+
+            // console.log('hi', $(this).attr('checked'))
+            // attr() 屬性 裡面只寫一組參數可以查看該屬性的值 寫兩組可以針對該屬性修改值 
+        });
     </script>
 </body>
 

@@ -63,7 +63,7 @@
         //     myDom[i].addEventListener('click',function(){})
         // }
         $('.col-3').click(function () {
-            $(this).eq(0).css('background', 'lightblue').siblings().css('background', 'lightblue');
+            $(this).nextAll().css('background', 'lightblue');
         });
     </script>
 </body>

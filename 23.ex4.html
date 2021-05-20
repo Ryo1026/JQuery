@@ -32,6 +32,7 @@
                 <div class="form-group">
                     <label for="exampleInputPassword1">Password</label>
                     <input type="password" class="form-control" id="exampleInputPassword" placeholder="Password">
+                    <div id="showPassword">顯示密碼</div>
                 </div>
 
                 <button type="button" class="btn btn-primary autoInput">一鍵輸入</button>
@@ -48,6 +49,9 @@
             $('#exampleInputUsername').val('John')
             $('#exampleInputEmail').val('john@gmail.com')
             $('#exampleInputPassword').val('john123')
+        });
+        $('#showPassword').css("color", 'red').click(function () {
+            $('#exampleInputPassword').attr('type', 'text')
         });
     </script>
 </body>
