@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex9</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <style>
+        .sizeS {
+            font-size: 0.8rem;
+        }
+
+        .sizeM {
+            font-size: 1rem;
+        }
+
+        .sizeL {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="d-flex justify-content-end">
+            <div class="btn-group">
+                <div class="btn btn-info changeS">S</div>
+                <div class="btn btn-info changeM">M</div>
+                <div class="btn btn-info changeL">L</div>
+            </div>
+        </div>
+        <h2>調整字體JQ</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis assumenda qui optio, illo fugit, corrupti
+            iste error iure laudantium tenetur eligendi neque necessitatibus. Voluptatem expedita et animi minus est
+            asperiores!</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous">
+        </script>
+    <script>
+        $('.changeS').click(function () {
+            $('p').removeClass()
+            $('p').addClass('sizeS')
+        })
+        $('.changeM').click(function () {
+            $('p').removeClass()
+            $('p').addClass('sizeM')
+        })
+        $('.changeL').click(function () {
+            $('p').removeClass()
+            $('p').addClass('sizeL')
+        });
+    </script>
+</body>
+
+</html>

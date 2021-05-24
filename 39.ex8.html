@@ -69,12 +69,13 @@
         $(document).on('keydown', function (e) {
             console.log('e', e.which);
 
-            // e.which 表示該"鍵盤輸入事件"的代碼
+            // e.which 表示該"鍵盤輸入事件"的代碼 每一個按鍵不同
 
             // 鍵盤右鍵
             if (e.which === 39) {
                 console.log('left:', $('.box').css('left'));
                 console.log('my if:', $('.box').css('left') < 700);
+
                 // 記得扣掉盒子本身的長寬 因為起點為box的左上
                 if (parseInt($('.box').css('left')) < 700) {
                     $('.box').css('left', '+=20');
