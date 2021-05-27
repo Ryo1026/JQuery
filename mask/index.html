@@ -18,7 +18,7 @@
         <h5>你好 !<訪客> EDU口罩銷售平台歡迎您</h5>
         <h6>請選擇您想要購買的口罩及數量</h6>
         <div class="row" id="mask">
-            <div class="mt-4 col-lg-3 col-sm-6 col-12">
+            <!-- <div class="mt-4 col-lg-3 col-sm-6 col-12">
                 <div class="card">
                     <img src="./images/item-1.jpg" class="card-img-top" alt="">
 
@@ -29,68 +29,34 @@
                         <div class="d-flex justify-content-between">
                             <p>$234</p>
                             <div class="btn-wrap">
-                                <button class="btn btn-primary"></button>
-                                <button class="btn btn-primary"></button>
+                                <button class="btn btn-primary"><i class="fas fa-heart"></i></button>
+                                <button class="btn btn-primary"><i class="fas fa-shopping-cart"></i></button>
                             </div>
                         </div>
-
                     </div>
                 </div>
-            </div>
-            <div class="mt-4 col-lg-3 col-sm-6 col-12">
-                <div class="card">
-                    <img src="./images/item-1.jpg" class="card-img-top" alt="">
+            </div> -->
+        </div>
+        <div class="row justify-content-center mt-3">
+            <div class="col-12 col-lg-4">
+                <div id="cart" class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">購物車</h5>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>品名</th>
+                                    <th>單價</th>
+                                    <th style="width:70px;padding-left:30px;">數量</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cart-list">
+                                <!-- 這裡取得資料後產生 -->
+                            </tbody>
+                        </table>
 
-                    <div class="card-body py-0">
-                        <h5>
-                            XXX口罩
-                        </h5>
-                        <div class="d-flex justify-content-between">
-                            <p>$234</p>
-                            <div class="btn-wrap">
-                                <button class="btn btn-primary"></button>
-                                <button class="btn btn-primary"></button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 col-lg-3 col-sm-6 col-12">
-                <div class="card">
-                    <img src="./images/item-1.jpg" class="card-img-top" alt="">
-
-                    <div class="card-body py-0">
-                        <h5>
-                            XXX口罩
-                        </h5>
-                        <div class="d-flex justify-content-between">
-                            <p>$234</p>
-                            <div class="btn-wrap">
-                                <button class="btn btn-primary"></button>
-                                <button class="btn btn-primary"></button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-            <div class="mt-4 col-lg-3 col-sm-6 col-12">
-                <div class="card">
-                    <img src="./images/item-1.jpg" class="card-img-top" alt="">
-
-                    <div class="card-body py-0">
-                        <h5>
-                            XXX口罩
-                        </h5>
-                        <div class="d-flex justify-content-between">
-                            <p>$234</p>
-                            <div class="btn-wrap">
-                                <button class="btn btn-primary"></button>
-                                <button class="btn btn-primary"></button>
-                            </div>
-                        </div>
-
+                        <span id="totalPrice" style="float:right"></span>
+                        <button class="btn btn-info btn-block">結帳</button>
                     </div>
                 </div>
             </div>
@@ -103,6 +69,7 @@
         </script>
 
     <script>
+        // 利用 ajax get 取得資料
         function getData() {
             $.ajax({
                 method: 'GET',
@@ -111,13 +78,48 @@
             })
                 .done(function (data) {
                     console.log('data', data)
-                    data.array.forEach(function (item) {
+                    data.forEach(function (item) {
+                        $('#mask').append(
+                            `<div class="mt-4 col-lg-3 col-sm-6 col-12">
+                <div class="card">
+                    <img src="./images/${item.image}" class="card-img-top" alt="">
 
+                        <div class="card-body py-0">
+                            <h5 class="card-title" data-name="${item.name}">
+                                ${item.name}
+                            </h5>
+                        <div class="d-flex justify-content-between">
+                        <p class="card-price" data-price="${item.price}">$${item.price}</p>
+                            <div class="btn-wrap">
+                                <button class="btn btn-primary shopping-saved"><i class="fas fa-heart"></i></button>
+                                <button class="btn btn-primary shopping-cart"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>`
+                        )
                     });
                 })
         }
 
         getData()
+
+        // 點擊購物車按鈕，判斷是否需要新增購物清單
+        // 綁定尚未存在的介面物件用 on
+        $(document).on('click', '.shopping-cart', function () {
+
+            // 利用點擊事件的 this 取得該物件 並找到名子與價格用常數記錄下來
+            // .data('example') 可以取得 HTML標籤中 data-example 的值
+            const name = $(this).closest('.card-body').find('.card-title').data('name')
+            const price = $(this).closest('.card-body').find('card-price').data('price')
+            console.log('name', name)
+            console.log('price', price)
+
+            if ($('#cart-list tr').length === 0) { }
+
+        });
+        
     </script>
 </body>
 
